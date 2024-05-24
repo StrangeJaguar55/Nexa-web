@@ -14,5 +14,15 @@ async function sendMessage(message) {
     displayMessage('BLACKBOXAI: ' + matchingResponse.response);
   } else {
     displayMessage('BLACKBOXAI: Sorry, I didn\'t understand that.');
+
+    function displayMessage(message) {
+  const div = document.createElement('div');
+  div.textContent = message;
+  messages.appendChild(div);
+
+  // Update the response paragraph
+  const responseParagraph = document.getElementById('response');
+  responseParagraph.textContent = message;
+}
   }
 }
