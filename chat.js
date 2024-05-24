@@ -19,22 +19,3 @@ function displayMessage(message) {
   div.textContent = message;
   messages.appendChild(div);
 }
-
-const dialogflow = require('dialogflow');
-
-// Create a new session
-const sessionClient = new dialogflow.SessionsClient();
-const sessionPath = sessionClient.sessionPath(process.env.DIALOGFLOW_PROJECT_ID, sessionId);
-
-// Send a message to the AI
-async function sendMessage(message) {
-  const request = {
-    session: sessionPath,
-    queryInput: {
-      text: {
-        text: message,
-        languageCode: process.env.DIALOGFLOW_LANGUAGE_CODE,
-      },
-    },
-  };
-  const responses = await sessionClient
